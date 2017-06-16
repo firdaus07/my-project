@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import {FirstPage} from "../first/first";
+import {SecongPage} from "../secong/secong";
+import {SecondPage} from "../second/second";
 
 @Component({
   selector: 'page-about',
@@ -7,8 +10,17 @@ import { NavController } from 'ionic-angular';
 })
 export class AboutPage {
 
+  firstpage=FirstPage
+
   constructor(public navCtrl: NavController) {
 
   }
-
+ goto()
+ {
+this.navCtrl.push(FirstPage,{"name":"FIRDAUS"});
+ }
+ gotosecond()
+ {
+   this.navCtrl.setRoot(SecondPage);
+ }
 }

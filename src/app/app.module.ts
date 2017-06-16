@@ -10,6 +10,10 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import {FirstPage} from "../pages/first/first";
+import {SecongPage} from "../pages/secong/secong";
+import {SecondPage} from "../pages/second/second";
+
 
 @NgModule({
   declarations: [
@@ -17,11 +21,24 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    FirstPage,
+    SecondPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp,
+      {
+        tabsPlacement: 'bottom',
+        platforms: {
+          android: {
+            tabsPlacement:'bottom',
+            tabsHideOnSubPages: true,
+            iconMode: "ios",
+
+          }
+        }
+      })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -29,7 +46,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    FirstPage,
+    SecondPage
   ],
   providers: [
     StatusBar,
