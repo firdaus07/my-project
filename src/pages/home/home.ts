@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {SecondPage} from "../second/second";
+import {DatafetchProvider} from "../../providers/datafetch/datafetch";
 
 @Component({
   selector: 'page-home',
@@ -19,13 +20,17 @@ subjects:any=[{"name":"Maths","code":"1"},
              {"name":"Science","code":"3"},
              {"name":"Economics","code":"4"},
              {"name":"History","code":"5"}];
-students:any=[{"name":"abc", "batch":"2014", "year":"second"},
-              {"name":"def", "batch":"2015", "year":"third"},
-              {"name":"ghi", "batch":"2016", "year":"final"}];
+students:any;
 delcomment:string;
 
-  constructor(public navCtrl: NavController) {
-
+  constructor(public navCtrl: NavController, public datafetch:DatafetchProvider) {
+    this.getdata();
+  }
+  getdata(){
+    this.datafetch.load().then((data)=>{
+      //this.students=data;
+      console.log(data);
+    })
   }
 
 gotosecond()

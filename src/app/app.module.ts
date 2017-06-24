@@ -13,6 +13,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {FirstPage} from "../pages/first/first";
 import {SecongPage} from "../pages/secong/secong";
 import {SecondPage} from "../pages/second/second";
+import { DatafetchProvider } from '../providers/datafetch/datafetch';
+import {HttpModule} from "@angular/http";
 
 
 @NgModule({
@@ -27,6 +29,7 @@ import {SecondPage} from "../pages/second/second";
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp,
       {
         tabsPlacement: 'bottom',
@@ -53,7 +56,8 @@ import {SecondPage} from "../pages/second/second";
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DatafetchProvider
   ]
 })
 export class AppModule {}

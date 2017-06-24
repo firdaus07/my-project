@@ -13,15 +13,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'first.html',
 })
 export class FirstPage {
-  name:string="";
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-
-    this.name=this.navParams.get("name");
-    //alert(this.name);
     console.log('ionViewDidLoad FirstPage');
   }
 
